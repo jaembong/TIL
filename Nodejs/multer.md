@@ -27,12 +27,15 @@ const multer = require('multer');
 const app = express();
 
 const upload = multer({
+    // 파일 저장 위치
     storage: diskStorage({
+        // 경로
         destination: function(req, file, cb) {
             cb(null, '/files');
         },
+        // 저장될 파일 이름
         filename: function(req, file, cb){
-            cb(null, originalname);
+            cb(null, file.originalname);
         }
     })
 });
