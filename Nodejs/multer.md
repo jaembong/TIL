@@ -4,17 +4,17 @@
 
 ## 설치
 
-1. Yarn
+Yarn
 
-   ```bash
-   $ yarn add multer
-   ```
+```bash
+    $ yarn add multer
+```
 
-2. NPM
+NPM
 
-    ```bash
+```bash
    $ npm install multer
-    ```
+```
 
 ## 기본 사용법
 
@@ -37,10 +37,27 @@ const upload = multer({
         filename: function(req, file, cb){
             cb(null, file.originalname);
         }
-    })
-});
-app.post('/files', upload.any(), function(req, res, next){
-    // next middleware
+    }),
+    limits: { fileSize: 30 * 1024 * 1024 }
+}).any();
+app.post(
+    '/files',
+    upload.any(),
+    function (req, res, next) {
+            upload(req, res, function(err) {
+                // catch error
+                if (err) {
+                    logger.error('[Multer][File] -> ' + err);
+                    res.status(statusCode.internalError).send(responseMessage.internalError);
+                    return;
+                }
+                else{
+                    next();
+                }
+            })
+        },
+    },
+    // next middleware or endpoint
 });
 ```
 
