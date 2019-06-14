@@ -118,7 +118,7 @@ const FileTest = props => {
 }
 
 const mapStateToProps = (state) => ({
-    formDataState: state.getIn(['form', 'fileForm']),
+    formData: state.getIn(['form', 'fileForm']),
     filesData: state.getIn(['files', 'files']),
 });
 
