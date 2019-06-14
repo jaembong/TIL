@@ -123,7 +123,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onFile: (file, name) => dispatch(actions.taskPageFiles(file, name)),
+    onFile: (file, name) => dispatch(actions.files(file, name))
 });
 
 export default reduxForm({
