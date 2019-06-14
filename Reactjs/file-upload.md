@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
 
 Component
 
-```javascript
+```JSX
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-from/immutable';
