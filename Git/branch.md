@@ -1,6 +1,6 @@
 # Git Branch
 
-## 리모트 브랜치 생성
+## 브랜치
 
 1. 로컬에서 생성
 
@@ -34,3 +34,13 @@
     ```
 
     Reference: <https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/>
+
+4. 삭제
+
+    ```bash
+    # 로컬 브랜치 삭제
+    git branch -d <branch name>
+
+    # 원격 브랜치 삭제
+    git push -d <remote name> <branch name>
+    ```
